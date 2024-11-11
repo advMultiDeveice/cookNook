@@ -1,0 +1,74 @@
+@font-face {
+    font-family: lato;
+    src: url(../assests/fonts/Lato-Italic.ttf);
+   }
+
+
+footer {
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    font-family: lato;
+   
+    // position: relative;
+}
+
+.footer-holder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.copywrite {
+    flex: 1;
+}
+
+.mid-footer {
+    flex: 2;
+    text-align: center;
+}
+
+#links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#links a {
+    text-decoration: none;
+    color: black;
+}
+
+.socials {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.facebook, .insta {
+    width: 30px;
+    height: 30px;
+    // background-color: #000;
+    // border-radius: 50%;
+    
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-holder {
+        flex-direction: column;
+    }
+    .socials {
+        margin-top: 10px;
+    }
+}

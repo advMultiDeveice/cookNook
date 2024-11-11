@@ -1,0 +1,124 @@
+@font-face {
+    font-family: lato-black;
+    src: url(../assests/fonts/Lato-Black.ttf);
+   }
+@font-face {
+    font-family: lato;
+    src: url(../assests/fonts/Lato-Regular.ttf);
+   }
+
+@font-face {
+    font-family: caveat;
+    src: url(../assests/fonts/Caveat-Regular.ttf);
+   }
+@font-face {
+    font-family: lato-italic;
+    src: url(../assests/fonts/Lato-Italic.ttf);
+   }
+
+
+
+.form-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 300px;
+}
+
+.form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 10px;
+    background-color: #FFD972;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+span{
+    font-family: lato-italic;
+}
+
+h2{
+    font-size: 30px;
+    // font-weight: bold;
+    color: #000;
+    text-align: left;
+    text-decoration: none;
+    margin: 0; 
+    padding: 0;
+    font-family: lato-black;
+}
+
+.signup-big-header {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    padding-bottom: 59px;
+    font-family: lato-black;
+}
+
+.login-header {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+    padding-bottom: 59px;
+    font-family: lato-black;
+}
+
+input {
+    width: 250px;
+    margin-top: 50px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 3px solid #333;
+    background: transparent;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin-bottom: 15px;
+    font-family: lato;
+}
+
+input::placeholder {
+    text-align: left;
+    padding-left: 0;
+    color: black;
+}
+
+input:focus {
+    border-color: #FFD972;
+}
+
+.submit-btn {
+    width: 250px;
+    height: 52px;
+    background-color: #FFD972;
+    border: none;
+    border-radius: 60px;
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 52px;
+    font-family: caveat;
+}
+
+
+
+@media (max-width: 768px) {
+    .form-holder {
+        width: 90%;
+        gap: 0;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
