@@ -1,0 +1,71 @@
+.form{
+    width: 980px;
+
+}
+
+
+.form p {
+    margin: 0;
+    padding: 0;
+    padding-top: 100px;
+}
+
+
+input{
+    display: block;
+    width: 980px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    padding-left: 0;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #000;
+}
+
+input::placeholder {
+    padding: 0;
+    padding-left: 0;
+    margin: 0;          
+ }
+ 
+
+input:focus{
+    outline: none;
+}
+
+
+
+.ingreds{
+    position: relative;
+}
+
+.instructs{
+    position: relative;
+}
+
+
+.addBtn{
+    position: absolute;
+    padding: 10px 15px;
+    background-color: blue;
+    border-radius: 50%;
+    color: white;
+    right: 0;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.submitBtn {
+    width: 50%;
+    color: white;
+    background-color: blue;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    /* height: 50px; */
+    text-align: center;  
+    padding: 20px 25px;
+}
