@@ -111,7 +111,7 @@ ul {
 
 header {
   background-color: none;
-  color: white;
+  color: black;
   padding: 0.5rem 0;
 }
 
@@ -210,7 +210,7 @@ header {
     align-items: center;
     text-align: center;
     background-color: wheat;
-    color: white;
+    color: black;
     transition: 0.3s ease-in-out;
   }
   .nav.active {
@@ -409,8 +409,29 @@ input:focus {
     flex-direction: column;
   }
 }
+@font-face {
+  font-family: lato-black;
+  src: url(../assests/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: caveat;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: lato-italic;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
+@font-face {
+  font-family: lato-light;
+  src: url(../assests/fonts/Lato-Light.ttf);
+}
 .form {
-  width: 980px;
+  min-width: 980px;
+  font-family: lato-light;
 }
 
 .form p {
@@ -421,7 +442,7 @@ input:focus {
 
 input {
   display: block;
-  width: 980px;
+  min-width: 980px;
   padding-top: 20px;
   padding-bottom: 5px;
   padding-left: 0;
@@ -434,10 +455,15 @@ input::placeholder {
   padding: 0;
   padding-left: 0;
   margin: 0;
+  font-family: lato-light;
 }
 
 input:focus {
   outline: none;
+}
+
+#imageUrl {
+  position: relative;
 }
 
 .ingreds {
@@ -446,6 +472,22 @@ input:focus {
 
 .instructs {
   position: relative;
+}
+
+.createBtn {
+  position: absolute;
+  width: 120.51px;
+  height: 36px;
+  background-color: #EFA7A7;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  right: 0;
+  bottom: 5px;
+  cursor: pointer;
+  font-family: caveat;
 }
 
 .addBtn {
@@ -464,20 +506,39 @@ input:focus {
 }
 
 .submitBtn {
-  width: 50%;
-  color: white;
+  width: 422px;
+  height: 52px;
+  color: black;
   background-color: #EFA7A7;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border-radius: 10px;
+  border-radius: 25px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
   /* height: 50px; */
   text-align: center;
   padding: 20px 25px;
+  font-family: caveat;
 }
 
+@font-face {
+  font-family: lato-black;
+  src: url(../assests/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: caveat;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: lato-italic;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
 .browse-wrapper {
   min-width: 100%;
   max-height: 100vh;
@@ -501,7 +562,6 @@ input:focus {
   margin-top: 53px;
   width: 100%;
   flex: 1;
-  background-color: cadetblue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -509,7 +569,6 @@ input:focus {
 .browse-wrapper .browse-holder .browse-left {
   width: 50%;
   height: 100%;
-  background-color: violet;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -522,7 +581,6 @@ input:focus {
   align-items: center;
   width: 524px;
   height: 263px;
-  background-color: bisque;
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe1 .browse-image {
   height: 100%;
@@ -531,7 +589,7 @@ input:focus {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: aliceblue;
+  background-image: url(../assests/recipe-pizza.jpg);
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe1 .browse-info {
   height: 100%;
@@ -540,8 +598,8 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: burlywood;
   border-radius: 24px;
+  font-family: lato-black;
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe2 {
   display: flex;
@@ -549,7 +607,6 @@ input:focus {
   align-items: center;
   width: 524px;
   height: 263px;
-  background-color: bisque;
   margin-top: 50px;
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe2 .browse-image {
@@ -559,7 +616,7 @@ input:focus {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: aliceblue;
+  background-image: url(../assests/recipe-pilaf.jpg);
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe2 .browse-info {
   height: 100%;
@@ -570,11 +627,64 @@ input:focus {
   align-items: center;
   background-color: burlywood;
   border-radius: 24px;
+  font-family: lato-black;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo {
+  align-items: center;
+  width: 224px;
+  height: 263px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .yourRecTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .yourRecSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .plate span {
+  display: inline-block; /* Makes span respect width and height */
+  font-size: 14px; /* Adjust the font size */
+  color: #000; /* Ensure text color is visible */
+  margin-top: 10px; /* Add some space around it */
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .plate span svg {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  position: static;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo span {
+  font-family: lato;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .yourRecHeader {
+  font-size: 15px;
+  font-weight: none;
+  margin-bottom: 10px;
+  width: 60%;
+  border-bottom: 2px solid #000;
+  font-family: lato-black;
+}
+.browse-wrapper .browse-holder .browse-left .yourRecInfo .yourRecText {
+  font-size: 9px;
+  margin: 0 auto;
+  width: 65%;
+  font-family: lato;
 }
 .browse-wrapper .browse-holder .browse-right {
   width: 50%;
   height: 100%;
-  background-color: violet;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -587,7 +697,6 @@ input:focus {
   align-items: center;
   width: 524px;
   height: 263px;
-  background-color: bisque;
 }
 .browse-wrapper .browse-holder .browse-right .browse-recipe1 .browse-image {
   height: 100%;
@@ -596,7 +705,7 @@ input:focus {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: aliceblue;
+  background-image: url(../assests/recipe-burger.jpg);
 }
 .browse-wrapper .browse-holder .browse-right .browse-recipe1 .browse-info {
   height: 100%;
@@ -614,7 +723,6 @@ input:focus {
   align-items: center;
   width: 524px;
   height: 263px;
-  background-color: bisque;
   margin-top: 50px;
 }
 .browse-wrapper .browse-holder .browse-right .browse-recipe2 .browse-image {
@@ -624,7 +732,7 @@ input:focus {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: aliceblue;
+  background-image: url(../assests/recipe-chowmein.jpg);
 }
 .browse-wrapper .browse-holder .browse-right .browse-recipe2 .browse-info {
   height: 100%;
@@ -636,7 +744,136 @@ input:focus {
   background-color: burlywood;
   border-radius: 24px;
 }
+.browse-wrapper .browse-holder .browse-right .yourRecInfo {
+  align-items: center;
+  width: 224px;
+  height: 263px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .yourRecTime {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .yourRecSize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .plate span {
+  display: inline-block; /* Makes span respect width and height */
+  font-size: 14px; /* Adjust the font size */
+  color: #000; /* Ensure text color is visible */
+  margin-top: 10px; /* Add some space around it */
+  font-family: lato;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .plate span svg {
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  position: static;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo span {
+  font-family: lato;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .yourRecHeader {
+  font-size: 15px;
+  font-weight: none;
+  margin-bottom: 10px;
+  width: 60%;
+  border-bottom: 2px solid #000;
+  font-family: lato-black;
+}
+.browse-wrapper .browse-holder .browse-right .yourRecInfo .yourRecText {
+  font-family: lato;
+  font-size: 9px;
+  margin: 0 auto;
+  width: 65%;
+}
 
+@media screen and (max-width: 1080px) {
+  .browse-wrapper {
+    padding: 0 30px;
+  }
+  .browse-holder {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .browse-left,
+  .browse-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  .browse-recipe1,
+  .browse-recipe2 {
+    width: 100%;
+    height: auto;
+  }
+  .browse-image {
+    width: 100%;
+  }
+  .browse-info {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 780px) {
+  .browse-wrapper {
+    padding: 0 15px;
+  }
+  .browse-holder {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .browse-left,
+  .browse-right {
+    width: 100%;
+    margin: 0;
+  }
+  .browse-right {
+    margin-top: 20px;
+  }
+  .browse-recipe1,
+  .browse-recipe2 {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .browse-image {
+    width: 100%;
+    height: 298.18;
+  }
+  .browse-info {
+    width: 100%;
+  }
+}
+@font-face {
+  font-family: lato-black;
+  src: url(../assests/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: caveat;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: lato-italic;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -655,6 +892,7 @@ input:focus {
   font-size: 24px;
   font-weight: bold;
   margin-right: 5px;
+  font-family: lato-black;
 }
 .wrapper .yourRec-container .recipeImage {
   min-width: 468px;
@@ -668,15 +906,18 @@ input:focus {
 .wrapper .yourRec-container .info .info-title {
   margin-bottom: 18px;
   font-size: 25px;
+  font-family: lato-black;
 }
 .wrapper .yourRec-container .info .info-title2 {
   margin-bottom: 22px;
   font-size: 20px;
+  font-family: lato-black;
 }
 .wrapper .yourRec-container .info .info-text {
   margin-bottom: 20px;
   width: 300px;
   font-size: 20px;
+  font-family: caveat;
 }
 .wrapper .lists-container {
   display: flex;
@@ -694,12 +935,14 @@ input:focus {
   font-weight: normal;
   margin-bottom: 34px;
   text-transform: none;
+  font-family: lato-black;
 }
 .wrapper .lists-container .list ul {
   margin: 0;
   padding-left: 20px;
   padding-left: 0;
   text-transform: none;
+  font-family: caveat;
 }
 .wrapper .lists-container .list li {
   width: 100%;
@@ -718,8 +961,39 @@ input:focus {
   cursor: pointer;
   text-align: center;
   margin-top: 20px;
+  font-family: caveat;
+}
+.wrapper .lists-container .edit-button a {
+  text-decoration: none;
+  color: black;
 }
 
+@media (max-width: 980px) {
+  .yourRec-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .yourRec-container .vertical-text {
+    transform: rotate(360deg);
+  }
+}
+@font-face {
+  font-family: lato-black;
+  src: url(../assests/fonts/Lato-Black.ttf);
+}
+@font-face {
+  font-family: lato;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: caveat;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+}
+@font-face {
+  font-family: lato-italic;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+}
 .recipe-wrapper {
   display: flex;
   flex-direction: column;
@@ -732,6 +1006,7 @@ input:focus {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 50px;
+  font-family: caveat;
 }
 .recipe-wrapper .recipe-container {
   display: flex;
@@ -748,6 +1023,10 @@ input:focus {
   border-radius: 24px;
   justify-content: center;
   align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../assests/recipe-pizza.jpg);
 }
 .recipe-wrapper .recipe-container .recipeImage .viewRec {
   width: 127px;
@@ -761,6 +1040,7 @@ input:focus {
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: caveat;
 }
 .recipe-wrapper .recipe-container .recipeImage .viewRec a {
   text-decoration: none;
@@ -783,25 +1063,13 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: lato;
 }
 .recipe-wrapper .recipe-container .yourRecInfo .yourRecSize {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.recipe-wrapper .recipe-container .yourRecInfo .plate span {
-  display: inline-block; /* Makes span respect width and height */
-  font-size: 14px; /* Adjust the font size */
-  color: #000; /* Ensure text color is visible */
-  margin-top: 10px; /* Add some space around it */
-}
-.recipe-wrapper .recipe-container .yourRecInfo .plate span svg {
-  width: 30px;
-  height: 30px;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  position: static;
+  font-family: lato;
 }
 .recipe-wrapper .recipe-container .yourRecInfo .yourRecHeader {
   font-size: 15px;
@@ -809,13 +1077,16 @@ input:focus {
   margin-bottom: 10px;
   width: 60%;
   border-bottom: 2px solid #000;
+  font-family: lato-black;
 }
 .recipe-wrapper .recipe-container .yourRecInfo .yourRecText {
   font-size: 9px;
   margin: 0 auto;
   width: 65%;
+  font-family: lato;
 }
 .recipe-wrapper .edit-delete {
+  font-family: caveat;
   display: flex;
   margin-top: 20px;
   align-items: flex-start;
@@ -846,4 +1117,65 @@ input:focus {
 }
 .recipe-wrapper .edit-delete .deleteRecipe {
   margin-left: 13px;
+}
+
+@media (max-width: 980px) {
+  .recipe-wrapper {
+    padding: 20px;
+  }
+  .recipe-wrapper .recipe-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-wrapper .recipe-container .recipeImage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .recipe-wrapper .recipe-container .yourRecInfo {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .recipe-wrapper .edit-delete {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-wrapper .edit-delete .editRecipe, .recipe-wrapper .edit-delete .deleteRecipe {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .recipe-wrapper .edit-delete .deleteRecipe {
+    margin-left: 0;
+  }
+}
+@media (max-width: 780px) {
+  .recipe-wrapper {
+    padding: 10px;
+  }
+  .recipe-wrapper .recipe-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-wrapper .recipe-container .recipeImage {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .recipe-wrapper .recipe-container .yourRecInfo {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  .recipe-wrapper .edit-delete {
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-wrapper .edit-delete .editRecipe, .recipe-wrapper .edit-delete .deleteRecipe {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .recipe-wrapper .edit-delete .deleteRecipe {
+    margin-left: 0;
+  }
 }

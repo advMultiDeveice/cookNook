@@ -1,3 +1,22 @@
+@font-face {
+  font-family: lato-black;
+  src: url(../assests/fonts/Lato-Black.ttf);
+ }
+@font-face {
+  font-family: lato;
+  src: url(../assests/fonts/Lato-Regular.ttf);
+ }
+
+@font-face {
+  font-family: caveat;
+  src: url(../assests/fonts/Caveat-Regular.ttf);
+ }
+@font-face {
+  font-family: lato-italic;
+  src: url(../assests/fonts/Lato-Italic.ttf);
+ }
+
+
 .recipe-wrapper {
     display: flex;
     flex-direction: column;
@@ -12,6 +31,7 @@
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 50px;
+      font-family: caveat;
     }
   
     .recipe-container {
@@ -30,6 +50,10 @@
         border-radius: 24px;
         justify-content: center;
         align-items: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(../assests/recipe-pizza.jpg);
         
   
         .viewRec {
@@ -45,6 +69,7 @@
             border-radius: 30px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-family: caveat;
             a {
                 text-decoration: none;  
                 color: inherit;         
@@ -66,12 +91,15 @@
         border-radius: 24px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         margin-left: 20px;
+        // font-family: lato-black;
 
         .yourRecTime{
             display: flex;
             // display: inline;
             justify-content: center;
             align-items: center;
+            font-family: lato;
+
         }
 
         .yourRecSize{
@@ -79,23 +107,10 @@
             // display: inline;
             justify-content: center;
             align-items: center;
+            font-family: lato;
         }
 
-        .plate span {
-            display: inline-block; /* Makes span respect width and height */
-            font-size: 14px; /* Adjust the font size */
-            color: #000; /* Ensure text color is visible */
-            margin-top: 10px; /* Add some space around it */
-
-            svg{
-              width: 30px;
-              height: 30px;
-              margin: 0 auto; 
-              padding: 0;
-              display: flex;
-              position: static;
-            }
-        }
+       
 
         .yourRecHeader {
             font-size: 15px;
@@ -103,6 +118,7 @@
             margin-bottom: 10px;
             width: 60%;
             border-bottom: 2px solid #000; 
+            font-family: lato-black;
             // padding-bottom: 10px; 
           }
         .yourRecText{
@@ -110,6 +126,7 @@
             // text-align: center;
             margin: 0 auto;
             width: 65%;
+            font-family: lato;
             // padding: 10px;
 
         }
@@ -117,6 +134,7 @@
     }
   
     .edit-delete {
+      font-family: caveat;
         display: flex;
         //   justify-content: center;
         //   width: 100%;
@@ -161,3 +179,78 @@
     }
   }
   
+
+@media (max-width: 980px) {
+  .recipe-wrapper {
+  padding: 20px;
+
+    .recipe-container {
+    flex-direction: column; 
+    align-items: center;
+
+    .recipeImage {
+        width: 100%;  
+        height: auto;
+        margin-bottom: 20px; 
+    }
+
+    .yourRecInfo {
+        width: 100%; 
+        margin-left: 0;
+        margin-bottom: 20px; 
+    }
+    }
+
+    .edit-delete {
+    flex-direction: column;
+    align-items: center;
+
+    .editRecipe, .deleteRecipe {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
+
+    .deleteRecipe {
+        margin-left: 0;
+    }
+    }
+    }
+    }
+
+
+    @media (max-width: 780px) {
+    .recipe-wrapper {
+    padding: 10px;
+
+    .recipe-container {
+    flex-direction: column; 
+    align-items: center;
+
+    .recipeImage {
+        width: 100%; 
+        height: auto;
+        margin-bottom: 20px; 
+    }
+
+    .yourRecInfo {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px; 
+    }
+    }
+
+    .edit-delete {
+    flex-direction: column; 
+    align-items: center;
+
+    .editRecipe, .deleteRecipe {
+        width: 100%; 
+        margin-bottom: 10px; 
+    }
+
+    .deleteRecipe {
+        margin-left: 0; 
+    }
+    }
+  }
+}

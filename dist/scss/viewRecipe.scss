@@ -1,3 +1,22 @@
+@font-face {
+    font-family: lato-black;
+    src: url(../assests/fonts/Lato-Black.ttf);
+   }
+@font-face {
+    font-family: lato;
+    src: url(../assests/fonts/Lato-Regular.ttf);
+   }
+
+@font-face {
+    font-family: caveat;
+    src: url(../assests/fonts/Caveat-Regular.ttf);
+   }
+@font-face {
+    font-family: lato-italic;
+    src: url(../assests/fonts/Lato-Italic.ttf);
+   }
+
+
 .wrapper {
     display: flex;
     flex-direction: column; 
@@ -19,6 +38,7 @@
         font-size: 24px;
         font-weight: bold;
         margin-right: 5px;
+        font-family: lato-black;
         // color: #ce1141; 
         }
     
@@ -41,12 +61,14 @@
             // font-weight: bold;
             margin-bottom: 18px;
             font-size: 25px;
+            font-family: lato-black;
             // background-color: yellow;
         }
         .info-title2 {
             // font-weight: bold;
             margin-bottom: 22px;
             font-size: 20px;
+            font-family: lato-black;
             // background-color: yellow;
         }
     
@@ -54,6 +76,7 @@
             margin-bottom: 20px;
             width: 300px;
             font-size: 20px;
+            font-family: caveat;
           }
         }
     }
@@ -76,6 +99,7 @@
                 font-weight: normal;
                 margin-bottom: 34px;
                 text-transform: none;
+                font-family: lato-black;
             }
         
             ul {
@@ -84,6 +108,7 @@
                 padding-left: 0;
                 // list-style-type: none;
                 text-transform: none;
+                font-family: caveat;
 
                 
             }
@@ -109,9 +134,34 @@
             cursor: pointer;
             text-align: center;
             margin-top: 20px;
+            font-family: caveat;
+
+            a{
+                text-decoration: none;
+                color: black;
+            }
             
         }
     }
     
   
+}
+
+
+
+@media (max-width: 980px) {
+    .yourRec-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .vertical-text{
+            // transform: none;
+            transform: rotate(360deg);
+
+        }
+    }
+}
+  
+@media (max-width: 780px) {
+
 }
