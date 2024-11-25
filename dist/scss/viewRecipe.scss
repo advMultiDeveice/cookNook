@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
+
+
+    .yourRec-container {
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        // margin: 10px;
+        padding: 80px;
+        width: 100%;
+    
+        .vertical-text {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 5px;
+        // color: #ce1141; 
+        }
+    
+        .recipeImage {
+        min-width: 468px;
+        min-height: 421px;
+        margin-right: 20px;
+        background-image: url(../assests/recipe-pizza.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+    
+        .info {
+        // margin: 20px;
+        // background-color: pink;
+        
+    
+        .info-title {
+            // font-weight: bold;
+            margin-bottom: 18px;
+            font-size: 25px;
+            // background-color: yellow;
+        }
+        .info-title2 {
+            // font-weight: bold;
+            margin-bottom: 22px;
+            font-size: 20px;
+            // background-color: yellow;
+        }
+    
+        .info-text {
+            margin-bottom: 20px;
+            width: 300px;
+            font-size: 20px;
+          }
+        }
+    }
+    
+    .lists-container {
+        // margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        width: 81%;
+    
+        .list {
+        width: 100%;
+        // margin: 0 10px;
+    
+            h3 {
+                margin-top: 53px;
+                font-size: 20px;
+                text-decoration: none;
+                font-weight: normal;
+                margin-bottom: 34px;
+                text-transform: none;
+            }
+        
+            ul {
+                margin: 0;
+                padding-left: 20px;
+                padding-left: 0;
+                // list-style-type: none;
+                text-transform: none;
+
+                
+            }
+        
+            li {
+                width: 100%;
+                margin-bottom: 8px;
+                text-transform: none;
+                
+            }
+        }
+        .edit-button {
+            display: inline-block;
+            padding: 10px 15px;
+            height: 42px;
+            width: 127px;
+            background-color: #FFD972;
+            // color: #ffffff;
+            font-size: 20px;
+            // font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+            
+        }
+    }
+    
+  
+}

@@ -1,10 +1,15 @@
 import * as $ from "jquery";
 
 import { loadPage, signUserUp, signUserIn } from "./model.js";
+import { getAuth, signOut } from "firebase/auth"; 
+
+const auth = getAuth(); 
 
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 
 const nav = document.querySelector(".nav");
+
+const loginLogoutBtn = $("#login");
 
 hamburgerMenu.addEventListener("click", () => {
     nav.classList.toggle("active")
@@ -14,7 +19,7 @@ hamburgerMenu.addEventListener("click", () => {
 
 function changeRoute() {
     let hashTag = window.location.hash;
-    let pageID = hashTag.replace('#', '') || 'home'; 
+    let pageID = hashTag.replace('#', '') || 'yourRecipe'; 
     console.log("Current page ID:", pageID);  // Debug log
 
     
@@ -24,8 +29,8 @@ function changeRoute() {
     
     if (pageID === 'home') {
         console.log("Changing to home background");
-        $('.background-wrapper').css('background-image', 'url(../assests/hero.jpg)'); 
-        $('.background-wrapper').css('background-color', 'rgba(242, 92, 84, 0.6)'); 
+        $('.background-wrapper').css('background-image', 'linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/hero.jpg)'); 
+        // $('.background-wrapper').css('background-color', 'rgba(242, 92, 84, 0.6)'); 
     } else if (pageID === 'login') {
         console.log("Changing to login background");
         $('.background-wrapper').css({
@@ -75,16 +80,75 @@ function initListeners() {
     });
 
     // Sign-In form logic
-    $("#login-submit").on("click", (e) => {
-        e.preventDefault(); 
-
-        const email = $("#login-email").val();
-        const password = $("#login-password").val();
-
-        console.log("Signing in with:", email, password);
-        signUserIn(email, password);
+    $(document).ready(function() {
+        $("#login-submit").on("click", (e) => {
+            e.preventDefault(); 
+            console.log("Login button clicked!");  // Log when the login button is clicked
+        
+            const email = $("#login-email").val();
+            const password = $("#login-password").val();
+        
+            console.log("Signing in with:", email, password);
+            signUserIn(email, password);
+        });
     });
+
+
+    $("#login-submit").on("click", function() {
+        alert("Button clicked!");
+    });
+
+
+
+
+
+    loginLogoutBtn.on("click", () => {
+        const isLoggedIn = auth.currentUser;  // Check if user is logged in
+
+        if (isLoggedIn) {
+            console.log("Logging out...");
+            logoutUser();  // Log the user out
+        } else {
+            console.log("Redirecting to login...");
+            window.location.hash = "#login";  
+        }
+    });
+
 }
+
+const updateLoginLogoutButton = () => {
+    const isLoggedIn = auth.currentUser;  // Check if user is logged in
+
+    if (isLoggedIn) {
+        loginLogoutBtn.css("Logout");  
+    } else {
+        loginLogoutBtn.css("Login");  
+    }
+}
+
+auth.onAuthStateChanged(user => {
+    updateLoginLogoutButton();  // Update the button text based on auth state
+
+    if (user) {
+        
+        window.location.hash = "#home";
+        loadPage("home"); 
+    }
+});
+
+const logoutUser = () => {
+    signOut(auth)  // Use Firebase's signOut to log out the user
+        .then(() => {
+            console.log("User logged out");
+        })
+        .catch((error) => {
+            console.error("Error logging out: ", error);
+        });
+};
+
+
+
+
 
 function initURLListener() {
     
@@ -95,6 +159,10 @@ function initURLListener() {
 
 $(document).ready(function () {
     loadPage("home");
-    initListeners();
+    initListeners(); 
+    
     initURLListener();
+    updateLoginLogoutButton();  
 });
+
+

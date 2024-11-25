@@ -32,10 +32,15 @@ export const signUserUp = (firstName, lastName, email, password) => {
 
 // Sign-in function
 export const signUserIn = (email, password) => {
+    const auth = getAuth();  // Get auth instance
     signInWithEmailAndPassword(auth, email, password)
-        .then(() => {
+        .then((userCredential) => {
+            const user = userCredential.user;  
             console.log("User signed in:", user);
+            
+            
             window.location.hash = "#home";  
+            loadPage("home");  
         })
         .catch((error) => {
             const errorCode = error.code;

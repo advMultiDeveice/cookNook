@@ -182,7 +182,7 @@
     height: 55px; /* Set the height of the logo */
     display: inline-block; }
 
-   #login {
+   #login{
     display: inline-block;
     width: 158px;
     height: 52px;
@@ -196,6 +196,7 @@
     display: flex;
     text-decoration: none;
     border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
     // padding-right: 20px;
     }
