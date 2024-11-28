@@ -14,25 +14,25 @@ const loginLogoutBtn = $("#login");
 
 const userRecipes = [];
 
-function addRecipeListeners(){
-    $("#ingredBtn").on("click", function(){
+// function addRecipeListeners(){
+//     $("#ingredBtn").on("click", function(){
 
-    })
-    $("#instructBtn").on("click", function(){
+//     })
+//     $("#instructBtn").on("click", function(){
         
-    })
-    $("#subtmitBtn").on("click", function(){
+//     })
+//     $("#subtmitBtn").on("click", function(){
         
-    })
-}
+//     })
+// }
 
 
-function removeRecipeListeners(){
+// function removeRecipeListeners(){
     
-    $("#submitBtn").off("click");
-    $("#instructBtn").off("click");
-    $("#ingredBtn").off("click");
-}
+//     $("#submitBtn").off("click");
+//     $("#instructBtn").off("click");
+//     $("#ingredBtn").off("click");
+// }
 
 
 
@@ -66,7 +66,7 @@ function changeRoute() {
         });
         
     }  else if (pageID === 'browse') {
-        console.log("Changing to browse background");
+        // console.log("Changing to browse background");
         $('.background-wrapper').css('background-image', 'linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.6)), url(../assests/recipe-hero.jpg)');
 
     }  else if (pageID === 'yourRecipe') {
@@ -85,7 +85,7 @@ function initListeners() {
     $("nav a").on("click", (e) => {
         e.preventDefault(); // Prevent default link behavior
         let id = e.currentTarget.id;
-        console.log("Navigating to:", id);
+        // console.log("Navigating to:", id);
     
         // Change the hash to the new page
         window.location.hash = `#${id}`;
@@ -101,6 +101,11 @@ function initListeners() {
         nav.classList.remove("active");
     });
 
+    
+    
+}
+
+function loginForm() {
     // Sign-up form logic
     $(document).on('click', '#signup-submit', (e) => {
         e.preventDefault();
@@ -159,24 +164,92 @@ function initListeners() {
             window.location.hash = "#login"; 
         }
     });
-    
 }
 
 
-function recipeListener(){
-    console.log("recipe Listener!!!")
-    $("#ingredBtn").on("click", function () {
+// function recipeListener(){
+//     console.log("recipe Listener!!!")
+//     $("#ingredBtn").on("click", function () {
         
-        console.log("Ingredient button clicked");
-        // console.log($("#ingredBtn"))
-        // let currentIngredCount = $(".ingreds input").length;
-        // currentIngredCount++;
-        // $(".ingreds").append(
-        //     `<input type="text" id="ingred${currentIngredCount}" placeholder="ingredient ${currentIngredCount}">`
-        // );
+//         console.log("Ingredient button clicked");
+        
+//         // );
+//     });
+    
+    
+    
+//     $("#instructBtn").on("click", () => {
+//         console.log("Instruction button clicked");
+//         let currentInstructCount = $(".instructs input").length;
+//         currentInstructCount++;
+//         $(".instructs").append(
+//             `<input type="text" id="instruct${currentInstructCount}" placeholder="instruction ${currentInstructCount}">`
+//         );
+//         console.log("Instruction added");
+//     });
+    
+//     $("#subtmitBtn").on("click", function() {
+//         let recipe = {
+//             recipeName: $("#recipeName").val(),
+//             recipeImage: $("#imageURL").val(),
+//             ingredients: [],
+//             instructions: [],
+//         };
+    
+//         $(".ingreds input").each(function () {
+//             recipe.ingredients.push($(this).val());
+//         });
+    
+//         $(".instructs input").each(function () {
+//             recipe.instructions.push($(this).val());
+//         });
+    
+//         userRecipes.push(recipe);
+//         alert("Recipe submitted");
+//         $(".form input").val(""); // Reset all input fields
+//         console.log(userRecipes);
+//     });
+//     console.log("recipe listener?")
+// }
+
+
+function updateLoginLogoutButton () {
+    const isLoggedIn = auth.currentUser;  // Check if user is logged in
+
+    if (isLoggedIn) {
+        loginLogoutBtn.html("Logout");  
+      
+        const userRecipesLink = '<li class="nav-link" id="yourRecipe"><a href="#yourRecipe">Your Recipes</a></li>';
+        // console.log("anchor clicked")
+       
+        if (!$("#yourRecipe").length) { 
+            $(".nav--ul__one").append(userRecipesLink);
+            $("#yourRecipe").on("click", function (e) {
+                e.preventDefault(); // Prevent default navigation behavior
+                console.log("Navigating to Your Recipes...");  
+                window.location.hash = "#yourRecipe"; // Update the hash
+                changeRoute(); // Trigger the route change manually
+            });
+        }
+
+    } else {
+        loginLogoutBtn.html("Login");
+        // Remove the "Your Recipes" link if user logs out
+        $("#your-recipes-link").remove();
+    }
+};
+
+function attachButtonListeners() {
+    // Log when "createBtn" is clicked
+    $("#createBtn").on("click", function () {
+        console.log("Attach File button clicked");
     });
-    
-    
+
+    // Log when "ingredBtn" is clicked
+    $("#ingredBtn").on("click", function () {
+        console.log("Ingredient button clicked");
+    });
+
     $("#instructBtn").on("click", () => {
         console.log("Instruction button clicked");
         let currentInstructCount = $(".instructs input").length;
@@ -186,8 +259,8 @@ function recipeListener(){
         );
         console.log("Instruction added");
     });
-    
-    $("#submitBtn").on("click", function () {
+
+    $("#submitBtn").on("click", function() {
         let recipe = {
             recipeName: $("#recipeName").val(),
             recipeImage: $("#imageURL").val(),
@@ -208,34 +281,10 @@ function recipeListener(){
         $(".form input").val(""); // Reset all input fields
         console.log(userRecipes);
     });
+            console.log("recipe listener?")
+
 }
 
-
-function updateLoginLogoutButton () {
-    const isLoggedIn = auth.currentUser;  // Check if user is logged in
-
-    if (isLoggedIn) {
-        loginLogoutBtn.html("Logout");  
-      
-        const userRecipesLink = '<li class="nav-link" id="yourRecipe"><a href="#yourRecipe">Your Recipes</a></li>';
-        console.log("anchor clicked")
-       
-        if (!$("#yourRecipe").length) { 
-            $(".nav--ul__one").append(userRecipesLink);
-            $("#yourRecipe").on("click", function (e) {
-                e.preventDefault(); // Prevent default navigation behavior
-                console.log("Navigating to Your Recipes...");  
-                window.location.hash = "#yourRecipe"; // Update the hash
-                changeRoute(); // Trigger the route change manually
-            });
-        }
-
-    } else {
-        loginLogoutBtn.html("Login");
-        // Remove the "Your Recipes" link if user logs out
-        $("#your-recipes-link").remove();
-    }
-};
 
 
 auth.onAuthStateChanged(user => {
@@ -271,13 +320,29 @@ function initURLListener() {
 }
 
 $(document).ready(function () {
+    // attachButtonListeners(); 
     loadPage("home");
    
     initListeners(); 
-    recipeListener()
+
+    console.log("dom is ready")
+    loginForm();
+    
+    
+  
+    attachButtonListeners();
+    
     initURLListener();
     
     updateLoginLogoutButton();  
+    setTimeout(function() {
+        console.log("Checking elements after delay...");
+
+        
+
+        // Attach event listeners after some delay to ensure elements exist
+        attachButtonListeners();
+    }, 500);  // Delay in milliseconds (500ms here)
 });
 
 
