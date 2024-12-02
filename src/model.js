@@ -52,3 +52,50 @@ export const signUserIn = (email, password) => {
 
 
 
+export const userRecipes = [];
+
+export const recipeButtonListeners = () => {
+    // Log when "createBtn" is clicked
+    $("#createBtn").on("click", function () {
+        console.log("Attach File button clicked");
+    });
+
+    // Log when "ingredBtn" is clicked
+    $("#ingredBtn").on("click", function () {
+        console.log("Ingredient button clicked");
+    });
+
+    $("#instructBtn").on("click", () => {
+        console.log("Instruction button clicked");
+        let currentInstructCount = $(".instructs input").length;
+        currentInstructCount++;
+        $(".instructs").append(
+            `<input type="text" id="instruct${currentInstructCount}" placeholder="instruction ${currentInstructCount}">`
+        );
+        console.log("Instruction added");
+    });
+
+    $("#submitBtn").on("click", function() {
+        let recipe = {
+            recipeName: $("#recipeName").val(),
+            recipeImage: $("#imageURL").val(),
+            ingredients: [],
+            instructions: [],
+        };
+    
+        $(".ingreds input").each(function () {
+            recipe.ingredients.push($(this).val());
+        });
+    
+        $(".instructs input").each(function () {
+            recipe.instructions.push($(this).val());
+        });
+    
+        userRecipes.push(recipe);
+        alert("Recipe submitted");
+        $(".form input").val(""); // Reset all input fields
+        console.log(userRecipes);
+    });
+            console.log("recipe listener?")
+
+}

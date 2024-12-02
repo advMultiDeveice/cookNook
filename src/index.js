@@ -1,7 +1,11 @@
 import * as $ from "jquery";
 
-import { loadPage, signUserUp, signUserIn } from "./model.js";
+import { loadPage, signUserUp, signUserIn, } from "./model.js";
+import { userRecipes, recipeButtonListeners } from "./model.js";
+
 import { getAuth, signOut } from "firebase/auth"; 
+
+
 
 const auth = getAuth(); 
 
@@ -12,29 +16,6 @@ const nav = document.querySelector(".nav");
 const loginLogoutBtn = $("#login");
 
 
-const userRecipes = [];
-
-// function addRecipeListeners(){
-//     $("#ingredBtn").on("click", function(){
-
-//     })
-//     $("#instructBtn").on("click", function(){
-        
-//     })
-//     $("#subtmitBtn").on("click", function(){
-        
-//     })
-// }
-
-
-// function removeRecipeListeners(){
-    
-//     $("#submitBtn").off("click");
-//     $("#instructBtn").off("click");
-//     $("#ingredBtn").off("click");
-// }
-
-
 
 hamburgerMenu.addEventListener("click", () => {
     nav.classList.toggle("active")
@@ -42,7 +23,7 @@ hamburgerMenu.addEventListener("click", () => {
 })
 
 
-function changeRoute() {
+const changeRoute = () => {
     let hashTag = window.location.hash;
     let pageID = hashTag.replace('#', '') || 'home'; 
     console.log("Current page ID:", pageID);  // Debug log
@@ -50,37 +31,60 @@ function changeRoute() {
     
     loadPage(pageID);
 
-    console.log("Current pageID:", pageID); 
     
-    if (pageID === 'home') {
-        console.log("Changing to home background");
-        $('.background-wrapper').css('background-image', 'linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/hero.jpg)'); 
-        // $('.background-wrapper').css('background-color', 'rgba(242, 92, 84, 0.6)'); 
-        
-    } else if (pageID === 'login') {
-        console.log("Changing to login background");
-        $('.background-wrapper').css({
-            'background-image': 'none',
-            'background-color': '#FFD972',  
-            'min-height': '100%'
-        });
-        
-    }  else if (pageID === 'browse') {
-        // console.log("Changing to browse background");
-        $('.background-wrapper').css('background-image', 'linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.6)), url(../assests/recipe-hero.jpg)');
 
-    }  else if (pageID === 'yourRecipe') {
-        console.log("Changing to browse background");
-        $('.background-wrapper').css('background-image', 'linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.6)), url(../assests/recipe-hero.jpg)');
+    // console.log("Current pageID:", pageID); 
+    switch (pageID){
+        case 'home':
+           
+                $('.background-wrapper').css('background-image', 'linear-gradient(rgba(242, 92, 84, 0.6), rgba(242, 92, 84, 0.6)), url(../assests/hero.jpg)'); 
+                $('.background-wrapper').css('background-color', 'rgba(242, 92, 84, 0.6)'); 
+                break;
 
-    } else {
-        console.log("Changing to default background");
-        $('.background-wrapper').css('background-image', 'none');
-        $('.background-wrapper').css('background-color', 'white');
+        case 'login':
+            
+            $('.background-wrapper').css({
+                'background-image': 'none',
+                'background-color': '#FFD972',  
+                'min-height': '100%'
+            });
+
+            break;
+
+        case 'browse':
+            
+            $('.background-wrapper').css('background-image', 'linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.6)), url(../assests/recipe-hero.jpg)');
+            
+            break;
+
+        case 'yourRecipe':
+            
+            $('.background-wrapper').css('background-image', 'linear-gradient(rgba(167, 232, 189, 0.6), rgba(167, 232, 189, 0.6)), url(../assests/recipe-hero.jpg)');
+
+            break;
+
+        case 'create':
+            const isLoggedIn = auth.currentUser;  
+            
+            if(!isLoggedIn) {
+                loadPage('login')
+            } else { 
+                loadPage(pageId)
+               
+            }
+            break;
+
+        default:
+            $('.background-wrapper').css('background-image', 'none');
+            $('.background-wrapper').css('background-color', 'white');
+            
+            break;
+        
     }
+
 }
 
-function initListeners() {
+const initListeners = () => {
     console.log("Initializing listeners...");
     $("nav a").on("click", (e) => {
         e.preventDefault(); // Prevent default link behavior
@@ -105,7 +109,7 @@ function initListeners() {
     
 }
 
-function loginForm() {
+const loginForm = () => {
     // Sign-up form logic
     $(document).on('click', '#signup-submit', (e) => {
         e.preventDefault();
@@ -124,7 +128,7 @@ function loginForm() {
 
     // Sign-In form logic
     
-    $("#login-submit").on("click", (e) => {
+    $(document).on("click", '#login-submit', (e) => {
         e.preventDefault(); 
         console.log("Login button clicked!");  // Log when the login button is clicked
     
@@ -167,50 +171,7 @@ function loginForm() {
 }
 
 
-// function recipeListener(){
-//     console.log("recipe Listener!!!")
-//     $("#ingredBtn").on("click", function () {
-        
-//         console.log("Ingredient button clicked");
-        
-//         // );
-//     });
-    
-    
-    
-//     $("#instructBtn").on("click", () => {
-//         console.log("Instruction button clicked");
-//         let currentInstructCount = $(".instructs input").length;
-//         currentInstructCount++;
-//         $(".instructs").append(
-//             `<input type="text" id="instruct${currentInstructCount}" placeholder="instruction ${currentInstructCount}">`
-//         );
-//         console.log("Instruction added");
-//     });
-    
-//     $("#subtmitBtn").on("click", function() {
-//         let recipe = {
-//             recipeName: $("#recipeName").val(),
-//             recipeImage: $("#imageURL").val(),
-//             ingredients: [],
-//             instructions: [],
-//         };
-    
-//         $(".ingreds input").each(function () {
-//             recipe.ingredients.push($(this).val());
-//         });
-    
-//         $(".instructs input").each(function () {
-//             recipe.instructions.push($(this).val());
-//         });
-    
-//         userRecipes.push(recipe);
-//         alert("Recipe submitted");
-//         $(".form input").val(""); // Reset all input fields
-//         console.log(userRecipes);
-//     });
-//     console.log("recipe listener?")
-// }
+
 
 
 function updateLoginLogoutButton () {
@@ -238,52 +199,6 @@ function updateLoginLogoutButton () {
         $("#your-recipes-link").remove();
     }
 };
-
-function attachButtonListeners() {
-    // Log when "createBtn" is clicked
-    $("#createBtn").on("click", function () {
-        console.log("Attach File button clicked");
-    });
-
-    // Log when "ingredBtn" is clicked
-    $("#ingredBtn").on("click", function () {
-        console.log("Ingredient button clicked");
-    });
-
-    $("#instructBtn").on("click", () => {
-        console.log("Instruction button clicked");
-        let currentInstructCount = $(".instructs input").length;
-        currentInstructCount++;
-        $(".instructs").append(
-            `<input type="text" id="instruct${currentInstructCount}" placeholder="instruction ${currentInstructCount}">`
-        );
-        console.log("Instruction added");
-    });
-
-    $("#submitBtn").on("click", function() {
-        let recipe = {
-            recipeName: $("#recipeName").val(),
-            recipeImage: $("#imageURL").val(),
-            ingredients: [],
-            instructions: [],
-        };
-    
-        $(".ingreds input").each(function () {
-            recipe.ingredients.push($(this).val());
-        });
-    
-        $(".instructs input").each(function () {
-            recipe.instructions.push($(this).val());
-        });
-    
-        userRecipes.push(recipe);
-        alert("Recipe submitted");
-        $(".form input").val(""); // Reset all input fields
-        console.log(userRecipes);
-    });
-            console.log("recipe listener?")
-
-}
 
 
 
@@ -321,6 +236,7 @@ function initURLListener() {
 
 $(document).ready(function () {
     // attachButtonListeners(); 
+    
     loadPage("home");
    
     initListeners(); 
@@ -328,21 +244,15 @@ $(document).ready(function () {
     console.log("dom is ready")
     loginForm();
     
+
+    // Buttons for the recipe listener
+    recipeButtonListeners();
     
-  
-    attachButtonListeners();
     
     initURLListener();
     
-    updateLoginLogoutButton();  
-    setTimeout(function() {
-        console.log("Checking elements after delay...");
 
-        
-
-        // Attach event listeners after some delay to ensure elements exist
-        attachButtonListeners();
-    }, 500);  // Delay in milliseconds (500ms here)
+  
 });
 
 

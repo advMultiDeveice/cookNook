@@ -27,6 +27,17 @@
     min-width: 980px;
     // padding: 100px;
     font-family: lato-light;
+    input{
+        display: block;
+        min-width: 980px;
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 0;
+        margin-bottom: 83px;
+        border: none;
+        background: transparent;
+        border-bottom: 2px solid #000;
+    }
 }
 
 
@@ -38,16 +49,7 @@
 
 
 
-input{
-    display: block;
-    min-width: 980px;
-    padding-top: 20px;
-    padding-bottom: 5px;
-    padding-left: 0;
-    margin-bottom: 83px;
-    border: none;
-    border-bottom: 2px solid #000;
-}
+
 
 input::placeholder {
     padding: 0;

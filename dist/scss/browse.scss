@@ -19,7 +19,7 @@
 
 .browse-wrapper {
     min-width: 100%;
-    max-height: 100vh;
+    max-height: 100%;
     // background-color: black;
     display: flex; 
     flex-direction: column; 
@@ -39,6 +39,7 @@
             font-size: 25px;
             font-weight: bold;
             color: black;
+            font-family: caveat;
         }
     }
     .browse-holder {
@@ -59,7 +60,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-right: 25px;
+            // margin-right: 25px;
           
             .browse-recipe1 {
                 display: flex;
@@ -196,7 +197,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 25px;
+            // margin-left: 25px;
           
             .browse-recipe1 {
                 display: flex;
@@ -340,9 +341,20 @@
 .browse-right {
     width: 100%; 
     display: flex; 
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+    // margin: 0 auto;
+
+}
+
+.browse-right{
+    // margin: 0 auto;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    // background-color: black;
 }
 
 
@@ -374,28 +386,62 @@
 
 .browse-left, 
 .browse-right {
-    width: 100%;
-    margin: 0; 
+    
     
 }
 .browse-right{
-    margin-top: 20px;
+    margin-top: 150px;
+   
+
+    .browse-recipe2{
+        
+        .browse-image{
+            margin-top: 150px;
+        }
+        .browse-info{
+            min-width: 297.96px;
+            min-height: 170px;
+            background-color:yellow;
+        }
+    }
+}
+.browse-left{
+
+   
+
+    .browse-recipe2{
+        
+        .browse-image{
+            margin-top: 150px;
+           
+        }
+        .browse-info{
+            min-width: 297.96px;
+            min-height: 170px;
+            background-color:yellow;
+            margin-top: 250px;
+        
+            
+        }
+    }
 }
 
 .browse-recipe1, 
 .browse-recipe2 {
-    width: 100%; 
-    height: auto; 
+    width: 500px; 
+    height: 500px; 
     flex-direction: column;
     justify-content: flex-start;
 }
 
+
 .browse-image {
-    width: 100%; 
-    height: 298.18;
+    min-width: 298.39px; 
+    min-height: 149.37px;
 }
 
 .browse-info {
-    width: 100%; 
+    min-width: 297.96px;
+    min-height: 170px;
 }
 }

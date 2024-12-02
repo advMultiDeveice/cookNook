@@ -313,54 +313,41 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 500px;
+}
+.form-holder .login-form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   gap: 300px;
 }
-
-.login-form {
-  width: 100%;
-  max-width: 400px;
-  padding: 20px;
-  margin: 10px;
-  background-color: #FFD972;
+.form-holder .login-form .login .login-header {
+  margin-top: 80px;
+  padding-bottom: 60px;
+}
+.form-holder .login-form .signUp .signup-big-header {
+  margin-bottom: 60px;
+}
+.form-holder .login-form .login,
+.form-holder .login-form .signUp {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: flex-start;
 }
-
-span {
-  font-family: lato-italic;
+.form-holder .login-form .login span,
+.form-holder .login-form .signUp span {
+  font-family: lato;
+  font-style: italic;
 }
-
-h2 {
+.form-holder .login-form .login h2,
+.form-holder .login-form .signUp h2 {
   font-size: 30px;
   color: #000;
-  text-align: left;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 20px;
   font-family: lato-black;
 }
-
-.signup-big-header {
-  font-size: 36px;
-  font-weight: bold;
-  color: #000;
-  padding-bottom: 59px;
-  font-family: lato-black;
-}
-
-.login-header {
-  font-size: 30px;
-  font-weight: bold;
-  color: #000;
-  text-align: left;
-  padding-bottom: 59px;
-  font-family: lato-black;
-}
-
-.input {
-  width: 250px;
-  margin-top: 50px;
+.form-holder .login-form .login .login-Input,
+.form-holder .login-form .signUp .login-Input {
   font-size: 16px;
   border: none;
   border-bottom: 3px solid #333;
@@ -369,26 +356,26 @@ h2 {
   transition: border-color 0.3s ease;
   margin-bottom: 15px;
   font-family: lato;
+  min-width: 250px;
+  margin-bottom: 70px;
 }
-
-input::placeholder {
+.form-holder .login-form .login .login-Input input,
+.form-holder .login-form .signUp .login-Input input {
+  min-width: 250px;
+}
+.form-holder .login-form .login .login-Input::placeholder,
+.form-holder .login-form .signUp .login-Input::placeholder {
   text-align: left;
-  padding-left: 0;
   color: black;
 }
-
-input:focus {
-  border-color: #FFD972;
-}
-
-.submit-btn {
+.form-holder .login-form .login .submit-btn,
+.form-holder .login-form .signUp .submit-btn {
   width: 250px;
   height: 52px;
-  background-color: #FFD972;
   border: none;
   border-radius: 60px;
   color: #000;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -396,8 +383,9 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 52px;
+  margin-top: 20px;
   font-family: caveat;
+  background-color: #FFD972;
 }
 
 @media (max-width: 768px) {
@@ -433,14 +421,7 @@ input:focus {
   min-width: 980px;
   font-family: lato-light;
 }
-
-.form p {
-  margin: 0;
-  padding: 0;
-  padding-top: 100px;
-}
-
-input {
+.form input {
   display: block;
   min-width: 980px;
   padding-top: 20px;
@@ -448,7 +429,14 @@ input {
   padding-left: 0;
   margin-bottom: 83px;
   border: none;
+  background: transparent;
   border-bottom: 2px solid #000;
+}
+
+.form p {
+  margin: 0;
+  padding: 0;
+  padding-top: 100px;
 }
 
 input::placeholder {
@@ -541,7 +529,7 @@ input:focus {
 }
 .browse-wrapper {
   min-width: 100%;
-  max-height: 100vh;
+  max-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -557,6 +545,7 @@ input:focus {
   font-size: 25px;
   font-weight: bold;
   color: black;
+  font-family: caveat;
 }
 .browse-wrapper .browse-holder {
   margin-top: 53px;
@@ -573,7 +562,6 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-right: 25px;
 }
 .browse-wrapper .browse-holder .browse-left .browse-recipe1 {
   display: flex;
@@ -689,7 +677,6 @@ input:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 25px;
 }
 .browse-wrapper .browse-holder .browse-right .browse-recipe1 {
   display: flex;
@@ -811,9 +798,15 @@ input:focus {
   .browse-right {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 50px;
+  }
+  .browse-right {
+    display: flex;
+    flex-direction: center;
+    align-items: center;
   }
   .browse-recipe1,
   .browse-recipe2 {
@@ -835,27 +828,40 @@ input:focus {
     flex-direction: column;
     justify-content: flex-start;
   }
-  .browse-left,
   .browse-right {
-    width: 100%;
-    margin: 0;
+    margin-top: 150px;
   }
-  .browse-right {
-    margin-top: 20px;
+  .browse-right .browse-recipe2 .browse-image {
+    margin-top: 150px;
+  }
+  .browse-right .browse-recipe2 .browse-info {
+    min-width: 297.96px;
+    min-height: 170px;
+    background-color: yellow;
+  }
+  .browse-left .browse-recipe2 .browse-image {
+    margin-top: 150px;
+  }
+  .browse-left .browse-recipe2 .browse-info {
+    min-width: 297.96px;
+    min-height: 170px;
+    background-color: yellow;
+    margin-top: 250px;
   }
   .browse-recipe1,
   .browse-recipe2 {
-    width: 100%;
-    height: auto;
+    width: 500px;
+    height: 500px;
     flex-direction: column;
     justify-content: flex-start;
   }
   .browse-image {
-    width: 100%;
-    height: 298.18;
+    min-width: 298.39px;
+    min-height: 149.37px;
   }
   .browse-info {
-    width: 100%;
+    min-width: 297.96px;
+    min-height: 170px;
   }
 }
 @font-face {
